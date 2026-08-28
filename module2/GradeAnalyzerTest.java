@@ -50,4 +50,17 @@ public class GradeAnalyzerTest {
         ArrayList<Integer> scores = new ArrayList<>(Arrays.asList(88, 88, 88));
         assertEquals(88.0, GradeAnalyzer.calculateAverage(scores));
     }
+
+    // --- My own extra test (not from the module) ---
+
+    @Test
+    void calculateAverage_returnsExactAverage_forTenScores() {
+        // A bigger, more realistic batch. These ten scores add up to 775, so the average
+        // should land exactly on 77.5. The module examples only used 1-3 numbers; this one
+        // checks the math still holds over a longer list where an off-by-one in the loop
+        // or a wrong divisor would show up.
+        ArrayList<Integer> scores = new ArrayList<>(
+                Arrays.asList(55, 65, 75, 85, 95, 60, 70, 80, 90, 100));
+        assertEquals(77.5, GradeAnalyzer.calculateAverage(scores));
+    }
 }

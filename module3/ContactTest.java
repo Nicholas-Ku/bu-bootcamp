@@ -57,4 +57,20 @@ public class ContactTest {
         Contact c = new Contact("Alan Turing", "555-0001");
         assertTrue(c.toString().contains("555-0001"));
     }
+
+    // --- My own extra test (not from the module) ---
+
+    @Test
+    void twoContactsWithSameName_areIndependent() {
+        // Same name, different phones. Even though they share a name, they are two separate
+        // objects with their own state, so one's phone number should never bleed into the other's.
+        Contact a = new Contact("Katherine Johnson", "555-1111");
+        Contact b = new Contact("Katherine Johnson", "555-2222");
+
+        // assertNotSame checks they are NOT the same object in memory (different references),
+        // which is the whole idea of independence, not just that they happen to look equal.
+        assertNotSame(a, b);
+        assertEquals("555-1111", a.getPhone()); // contact a kept its own number
+        assertEquals("555-2222", b.getPhone()); // contact b kept its own number, unaffected by contact a
+    }
 }
