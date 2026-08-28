@@ -1,0 +1,8 @@
+# JUnit and other local JARs live here but are not tracked (download them per the setup steps).
+lib/
+
+# Compiled class files
+*.class
+
+# Generated report from GradeAnalyzer
+report.txt
